@@ -5,6 +5,9 @@ copyright: Copyright &copy; 2023-2024 Titus Brown and Anneliek ter Horst
 nav:
   - Introduction:
     - index.md
+  - Tutorials:
+    - single-metagenomes-taxonomy.md
+    - amr.md
 
 markdown_extensions:
   - toc:
