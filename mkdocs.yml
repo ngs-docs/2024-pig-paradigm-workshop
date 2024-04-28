@@ -7,6 +7,7 @@ nav:
     - index.md
   - Tutorials:
     - single-metagenomes-taxonomy.md
+    - comparing-metagenomes.md
     - amr.md
 
 markdown_extensions:

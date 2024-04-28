@@ -5,6 +5,7 @@
 Tutorials:
 
 * [Analyzing a single metagenome for taxonomy](single-metagenomes-taxonomy.md)
+* [Comparing metagenomes](comparing-metagenomes.md)
 * [Analyzing metagenomes for Antimicrobial Resistance (AMR)](amr.md)
 
 ## Tutorial information
