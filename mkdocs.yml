@@ -53,7 +53,7 @@ theme:
     - search.highlight
     - search.share
     - search.suggest
-  logo: assets/HPCCF-logo-dark.png
+  logo: assets/ucdavis_logo_gold.png
   icon:
     repo: fontawesome/brands/github
   palette: 
