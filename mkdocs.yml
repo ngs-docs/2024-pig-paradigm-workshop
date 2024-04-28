@@ -3,8 +3,8 @@ repo_url: https://github.com/ngs-docs/2024-pig-paradigm-workshop
 copyright: Copyright &copy; 2023-2024 Titus Brown and Anneliek ter Horst
 
 nav:
-  - Introduction
-    - introduction.md
+  - Introduction:
+    - index.md
 
 markdown_extensions:
   - toc:
