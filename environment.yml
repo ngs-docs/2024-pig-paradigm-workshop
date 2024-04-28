@@ -1,0 +1,9 @@
+name: farm-docs
+channels:
+    - conda-forge
+    - bioconda
+    - defaults
+dependencies:
+    - python>=3.11,<3.13
+    - mamba>=0.22.1
+    - mkdocs

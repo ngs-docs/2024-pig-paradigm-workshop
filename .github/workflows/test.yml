@@ -1,0 +1,22 @@
+name: ci 
+on:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Docs
+        uses: actions/checkout@v3
+        with:
+          path: docs
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - uses: actions/cache@v2
+        with:
+          key: ${{ github.ref }}
+          path: .cache
+      - run: pip install -r docs/requirements.txt
+      - name: mkdocs build
+        working-directory: docs
+        run: mkdocs build
