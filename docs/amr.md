@@ -16,7 +16,7 @@ of the metagenome.
 
 First, install the software. Run:
 ```
-mamba create -n amrfinder -y ncbi-amrfinderplus megahit prodigal csvtk
+mamba create -n amrfinder -y ncbi-amrfinderplus megahit prodigal csvtk matplotlib seaborn pandas
 conda activate amrfinder
 ```
 
@@ -101,4 +101,10 @@ using the column "Protein identifier", and then map the metagenome
 reads to it to get the abundance. This is because assembly collapses
 the abundance of the output contigs, and you have to recover it through
 other means.
+
+
+Nowe we can plot the abundances of the AMRs found:
+```
+../scripts/plot_amr.py CD136.amrfinder.tsv -o CD136.amrfinder.pdf
+```
 
