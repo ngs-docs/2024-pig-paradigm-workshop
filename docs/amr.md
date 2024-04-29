@@ -107,4 +107,6 @@ Nowe we can plot the abundances of the AMRs found:
 ```
 ../scripts/plot_amr.py CD136.amrfinder.tsv -o CD136.amrfinder.pdf
 ```
+![CD136 amrfinder](https://github.com/AnneliektH/2024-pig-paradigm-workshop/images/CD136.amrfinder.png)
+
 
