@@ -1,8 +1,17 @@
 # Comparing metagenomes
 
+The tutorial uses [sourmash](https://sourmash.readthedocs.io/) to do
+comparisons of multiple metagenomes based on weighted and unweighted
+k-mer content.
+
+In this tutorial, you will learn how to create distance matrices and
+ordination plots from metagenome content. Importantly, this tutorial
+is *reference* and *annotation* free - it will work equally well on
+any metagenome.
+
 ## First, create a conda software environment and a working directory.
 
-To install software, run:
+To install the necessary software, run:
 ```
 mamba create -n smash -y sourmash scikit-learn
 conda activate smash
@@ -14,14 +23,12 @@ mkdir ~/compare-metag
 cd ~/compare-metag
 ```
 
-
 ## Comparing based on content
 
-<!-- * reference free, annotation free @CTB -->
-
 Here we are going to use the
+[`sourmash compare`](https://sourmash.readthedocs.io/en/latest/command-line.html#sourmash-compare-compare-many-signatures) and
 [`sourmash plot`](https://sourmash.readthedocs.io/en/latest/command-line.html#sourmash-plot-cluster-and-visualize-comparisons-of-many-signatures)
-command to compare and cluster many metagenomes based on their content - not their annotation or assemblies.
+commands to compare and cluster many metagenomes based on their content.
 
 As with the [single metagenome analysis](single-metagenomes-taxonomy.md), we have two options here: with, or without abundance information.
 

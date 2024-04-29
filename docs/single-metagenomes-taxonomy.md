@@ -1,5 +1,14 @@
 # Analyzing a single metagenome for taxonomy
 
+The tutorial uses [sourmash](https://sourmash.readthedocs.io/) to do
+various k-mer based analyses of Illumina shotgun metagenome content.
+
+In this tutorial, you will learn:
+
+* how to look at what genomes share content with a metagenome;
+* how to examine the abundance of metagenome content without a reference;
+* how to summarize the taxonomic content of a metagenome;
+
 ## Creating a working directory
 
 Run:
@@ -90,8 +99,6 @@ Points to discuss:
   content is present in the reference database.  Some of this is
   probably erroneous data or host contamination.
   
-<!-- @CTB details: discuss weighted/unweighted more? and... what's in a metagenome, anyway? -->
-
 ### K-mer abundance histogram
 
 Let's examine this data set further. First, let's take a look at the
