@@ -1,6 +1,6 @@
 # Introduction
 
-@CTB stuff about workshop
+<!-- @CTB stuff about workshop -->
 
 Tutorials:
 

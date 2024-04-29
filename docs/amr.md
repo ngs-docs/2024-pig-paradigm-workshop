@@ -1,20 +1,31 @@
 # Analyzing metagenomes for Antimicrobial Resistance (AMR) Genes
 
+We're going to use
+[AMRFinderPlus](https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/),
+together with the
+[megahit metagenome assembler](https://github.com/voutcn/megahit) and
+the
+[prodigal gene finder](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-119),
+to look for antimicrobial resistance genes in the CD136 metagenome.
+
+We're going to do this by assembling the CD136 metagenome using the megahit
+assembler. This will give us contigs that represent the high coverage portion
+of the metagenome.
+
 ## Install amrfinder, megahit, and prodigal.
 
-@CTB links to software
-
+First, install the software. Run:
 ```
 mamba create -n amrfinder -y ncbi-amrfinderplus megahit prodigal csvtk
 conda activate amrfinder
 ```
 
-Download the amrfinder database:
+Next, download the amrfinderplus database. Run:
 ```
 amrfinder -u
 ```
 
-and set up & change to a working directory:
+And, finally, set up & change to a working directory. Run:
 ```
 mkdir ~/amr/
 cd ~/amr/
@@ -24,7 +35,9 @@ cd ~/amr/
 
 We'll start by assembling the CD136 metagenome into contigs. In this
 case, we're not going to bin the contigs, because AMR genes
-[don't assemble well](https://www.biorxiv.org/content/10.1101/2023.12.13.571436v1.full).
+[don't assemble well](https://www.biorxiv.org/content/10.1101/2023.12.13.571436v1.full), and in particular don't assemble into regions that are
+connected to their host genome. So we run the assembler, and look at genes
+on the resulting contigs.
 
 Run:
 ```
@@ -44,14 +57,27 @@ This will produce a FASTA file containing many protein sequences:
 ```
 head CD136.assembly.faa
 ```
+These are the (partial & complete) genes found by the `prodigal` software.
 
 And, finally, run AMRfinder on the proteins:
 ```
-amrfinder -p CD136.assembly.faa -t 16 -o CD136.amrfinder.csv  --plus
+amrfinder -p CD136.assembly.faa -t 16 -o CD136.amrfinder.tsv --plus
 ```
 
+This will produce a spreadsheet named `CD136.amrfinder.tsv` that
+contains a number of columns - you can see the list like so, using
+`csvtk headers`:
+
 ```
-csvtk -t cut -f "% Coverage of reference sequence","HMM description" CD136.amrfinder.csv 
+csvtk -t headers CD136.amrfinder.tsv
 ```
 
-@CTB examine output files.
+To pick out just a few columns, you can use `csvtk cut`.
+
+Run:
+```
+csvtk -t cut -f "% Coverage of reference sequence","HMM description" CD136.amrfinder.tsv 
+```
+
+<!-- @CTB say something output the files.  -->
+

@@ -17,11 +17,11 @@ cd ~/compare-metag
 
 ## Comparing based on content
 
-* reference free, annotation free @CTB
+<!-- * reference free, annotation free @CTB -->
 
 Here we are going to use the
 [`sourmash plot`](https://sourmash.readthedocs.io/en/latest/command-line.html#sourmash-plot-cluster-and-visualize-comparisons-of-many-signatures)
-command to compare and cluster many metagenomes based on their content.
+command to compare and cluster many metagenomes based on their content - not their annotation or assemblies.
 
 As with the [single metagenome analysis](single-metagenomes-taxonomy.md), we have two options here: with, or without abundance information.
 

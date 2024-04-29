@@ -10,5 +10,6 @@ pip install -r requirements.txt
 
 and then either `mkdocs build` or `mkdocs serve`.
 
-Note, the website at @CTB will be automatically built.
-
+Note, the website at
+[ngs-docs.github.io/2024-pig-paradigm-workshop/](https://ngs-docs.github.io/2024-pig-paradigm-workshop/)
+will automatically build and deploy on merge to main.
