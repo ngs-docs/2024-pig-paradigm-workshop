@@ -5,16 +5,17 @@ set -e
 mkdir ~/data/
 
 cd ~/data/
-curl -JLO http://farm.cse.ucdavis.edu/~ctbrown/transfer/IBD_tutorial_subset.tar.gz
-tar xzf IBD_tutorial_subset.tar.gz
-curl -JLO http://farm.cse.ucdavis.edu/~ctbrown/transfer/tutorial_other.tar.gz
-tar xzf tutorial_other.tar.gz
-
+#curl -JLO http://farm.cse.ucdavis.edu/~ctbrown/transfer/IBD_tutorial_subset.tar.gz
+tar xzf /opt/shared/IBD_tutorial_subset.tar.gz
+#curl -JLO http://farm.cse.ucdavis.edu/~ctbrown/transfer/tutorial_other.tar.gz
+tar xzf /opt/shared/tutorial_other.tar.gz
 
 mkdir ~/databases/
 cd ~/databases/
-curl -JLO https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs214/gtdb-rs214-k31.zip
-curl -JLO https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs214/gtdb-rs214.lineages.csv.gz
+ln -fs /opt/shared/gtdb-rs214-k31.zip .
+ln -fs /opt/shared/gtdb-rs214.lineages.csv.gz .
+#curl -JLO https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs214/gtdb-rs214-k31.zip
+#curl -JLO https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs214/gtdb-rs214.lineages.csv.gz
 
 cd ~/
 
