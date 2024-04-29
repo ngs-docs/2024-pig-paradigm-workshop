@@ -127,3 +127,7 @@ mamba create -y -n workshop-r r-base r-tidyverse r-vegan r-ape r-rcolorbrewer
 ```
 
 -->
+
+---
+
+Next tutorial: [Analyzing metagenomes for Antimicrobial Resistance Genes](amr.md)
