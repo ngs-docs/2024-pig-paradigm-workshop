@@ -1,6 +1,7 @@
 # Introduction
 
-<!-- @CTB stuff about workshop -->
+These are tutorials for the PIG-PARADIGM workshop on metagenomics,
+Apr 29th, 2024, given at Wageningen.
 
 Tutorials:
 
@@ -12,3 +13,9 @@ Tutorials:
 
 Data originally from
 [the MIntO tutorial data](https://zenodo.org/records/6369313).
+
+## More information
+
+Authors: Anneliek ter Horst and C. Titus Brown
+
+See the GitHub repo at [ngs-docs/2024-pig-paradigm-workshop](https://github.com/ngs-docs/2024-pig-paradigm-workshop).

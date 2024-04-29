@@ -1,5 +1,18 @@
 # Analyzing a single metagenome for taxonomy
 
+The tutorial uses [sourmash](https://sourmash.readthedocs.io/) to do
+various k-mer based analyses of Illumina shotgun metagenome content.
+
+In this tutorial, you will learn:
+
+* how to look at what genomes share content with a metagenome;
+* how to examine the abundance of metagenome content without a reference;
+* how to summarize the taxonomic content of a metagenome;
+
+We will be using the taxonomic classification system as benchmarked in
+[Evaluation of taxonomic classification and profiling methods for long-read shotgun metagenomic sequencing datasets](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-022-05103-0),
+which is both very *sensitive* and quite *specific*.
+
 ## Creating a working directory
 
 Run:
@@ -90,8 +103,6 @@ Points to discuss:
   content is present in the reference database.  Some of this is
   probably erroneous data or host contamination.
   
-<!-- @CTB details: discuss weighted/unweighted more? and... what's in a metagenome, anyway? -->
-
 ### K-mer abundance histogram
 
 Let's examine this data set further. First, let's take a look at the

@@ -1,8 +1,17 @@
 # Comparing metagenomes
 
+The tutorial uses [sourmash](https://sourmash.readthedocs.io/) to do
+comparisons of multiple metagenomes based on weighted and unweighted
+k-mer content.
+
+In this tutorial, you will learn how to create distance matrices and
+ordination plots from metagenome content. Importantly, this tutorial
+is *reference* and *annotation* free - it will work equally well on
+any metagenome.
+
 ## First, create a conda software environment and a working directory.
 
-To install software, run:
+To install the necessary software, run:
 ```
 mamba create -n smash -y sourmash scikit-learn
 conda activate smash
@@ -14,14 +23,12 @@ mkdir ~/compare-metag
 cd ~/compare-metag
 ```
 
-
 ## Comparing based on content
 
-<!-- * reference free, annotation free @CTB -->
-
 Here we are going to use the
+[`sourmash compare`](https://sourmash.readthedocs.io/en/latest/command-line.html#sourmash-compare-compare-many-signatures) and
 [`sourmash plot`](https://sourmash.readthedocs.io/en/latest/command-line.html#sourmash-plot-cluster-and-visualize-comparisons-of-many-signatures)
-command to compare and cluster many metagenomes based on their content - not their annotation or assemblies.
+commands to compare and cluster many metagenomes based on their content.
 
 As with the [single metagenome analysis](single-metagenomes-taxonomy.md), we have two options here: with, or without abundance information.
 
@@ -114,19 +121,46 @@ If you plot this via MDS, you'll see a clear separation:
 Points to discuss:
 
 * what does this all mean, in ~microbial terms? Hint: ask Mani to
-  revist how the test data sets were generated!
+  revist how the test data sets were generated! Alternatively,
+  go on to the next section!
+  
+## Extra: examining taxonomy
 
-<!--
-
-## Comparing based on taxonomy
-
+If we quickly run our [taxonomy analysis](single-metagenomes-taxonomy.md) on
+one of the other samples, we can maybe start to see some of the reasons for
+the differences in diversity but not richness:
 
 ```
-mamba create -y -n workshop-r r-base r-tidyverse r-vegan r-ape r-rcolorbrewer
+mamba activate tax
 
+sourmash scripts fastgather ../data/tutorial_other/CD240.sig.zip \
+    ../databases/gtdb-rs214-k31.zip -o CD240.x.gtdb-rs214.fastgather.csv -c 16
+
+sourmash gather ../data/tutorial_other/CD240.sig.zip \
+    ../databases/gtdb-rs214-k31.zip -o CD240.x.gtdb-rs214.gather.csv \
+    --picklist CD240.x.gtdb-rs214.fastgather.csv:match_name:ident
+    
+sourmash tax metagenome -g CD240.x.gtdb-rs214.gather.csv \
+    -t ../single-metag/gtdb-rs214.lineages.sqldb -F human
 ```
 
--->
+You should see:
+```
+sample name    proportion   cANI   lineage
+-----------    ----------   ----   -------
+CD240             42.2%     94.0%  d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__Bacteroides uniformis
+CD240             19.5%     94.5%  d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__Bacteroides fragilis
+CD240             12.6%     94.1%  d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Tannerellaceae;g__Parabacteroides;s__Parabacteroides distasonis
+CD240             11.7%     91.2%  d__Bacteria;p__Bacillota_A;c__Clostridia;o__Oscillospirales;f__Acutalibacteraceae;g__Ruminococcus_E;s__Ruminococcus_E bromii_B
+CD240             11.4%     -      unclassified
+CD240              2.6%     91.4%  d__Bacteria;p__Bacillota_A;c__Clostridia;o__Oscillospirales;f__Ruminococcaceae;g__Faecalibacterium;s__Faecalibacterium prausnitzii_D
+```
+
+That's right - both samples have similar species, but the abundances of those
+species are quite different.
+
+Note that in this case that's not an accident: the dataset was created
+specifically to contain only five species ;).
 
 ---
 
