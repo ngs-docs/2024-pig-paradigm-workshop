@@ -9,6 +9,10 @@ In this tutorial, you will learn:
 * how to examine the abundance of metagenome content without a reference;
 * how to summarize the taxonomic content of a metagenome;
 
+We will be using the taxonomic classification system as benchmarked in
+[Evaluation of taxonomic classification and profiling methods for long-read shotgun metagenomic sequencing datasets](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-022-05103-0),
+which is both very *sensitive* and quite *specific*.
+
 ## Creating a working directory
 
 Run:
