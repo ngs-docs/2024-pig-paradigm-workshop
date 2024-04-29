@@ -103,7 +103,7 @@ the abundance of the output contigs, and you have to recover it through
 other means.
 
 
-Nowe we can plot the abundances of the AMRs found:
+Now we can plot the abundances of the AMRs we found:
 ```
 ../scripts/plot_amr.py CD136.amrfinder.tsv -o CD136.amrfinder.pdf
 ```
