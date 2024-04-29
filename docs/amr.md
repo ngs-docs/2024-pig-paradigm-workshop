@@ -63,8 +63,9 @@ And, finally, run AMRfinder on the proteins:
 ```
 amrfinder -p CD136.assembly.faa -t 16 -o CD136.amrfinder.tsv --plus
 ```
+(This will take under a minute.)
 
-This will produce a spreadsheet named `CD136.amrfinder.tsv` that
+AMRfinder will produce a spreadsheet named `CD136.amrfinder.tsv` that
 contains a number of columns - you can see the list like so, using
 `csvtk headers`:
 
@@ -79,5 +80,25 @@ Run:
 csvtk -t cut -f "% Coverage of reference sequence","HMM description" CD136.amrfinder.tsv 
 ```
 
-<!-- @CTB say something output the files.  -->
+and you will see:
+```
+% Coverage of reference sequence        HMM description
+89.41   CfxA family broad-spectrum class A beta-lactamase
+87.59   23S ribosomal RNA methyltransferase Erm
+52.84   NA
+100.00  macrolide efflux MFS transporter Mef(En2)
+100.00  lincosamide nucleotidyltransferase Lnu(AN2)
+100.00  CepA family extended-spectrum class A beta-lactamase
+```
+
+The first column here is the amount of the known (reference) sequence
+that is present in the metagenome, and the second is the description of
+the match.
+
+Note: If you wanted to get the abundance of these in the metagenome,
+you would have to find the DNA contig that the relevant gene was on,
+using the column "Protein identifier", and then map the metagenome
+reads to it to get the abundance. This is because assembly collapses
+the abundance of the output contigs, and you have to recover it through
+other means.
 
